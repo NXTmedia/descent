@@ -1,17 +1,22 @@
-
 <!DOCTYPE html>
 <html>
   <head>
+    <!-- Google Tag Manager -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-P77S5R3B");
+    </script>
+    <!-- End Google Tag Manager -->
 
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-P77S5R3B');</script>
-<!-- End Google Tag Manager -->
-      
-      <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles.css" />
     <meta
       http-equiv="Cache-Control"
       content="no-cache, no-store, must-revalidate"
@@ -107,8 +112,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       </div>
     </div>
     <script type="text/javascript">
- 
-
       tp = window["tp"] || [];
 
       tp.push(["setTags", ["test"]]);
@@ -122,21 +125,19 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           tp.pianoId.getUser().email;
         document.getElementById("language").innerHTML = tp.pianoId.getLang();
       }
+window.dataLayer = window.dataLayer || [];
 
-      tp.push(["addHandler", "loginSuccess", function(data){
-          
-        var dobj = tp.pianoId.getUser();
-        dataLayer.push({
-            'event' : 'userData',
-            'user_id' : dobj.uid,
-
-        })
-     
-
-
-
-}]);
-   
+      tp.push([
+        "addHandler",
+        "loginSuccess",
+        function (data) {
+          var dobj = tp.pianoId.getUser();
+          dataLayer.push({
+            event: "userLogin",
+            user_id: dobj.uid,
+          });
+        },
+      ]);
     </script>
   </body>
 </html>
