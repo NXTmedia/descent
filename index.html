@@ -126,7 +126,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       tp.push(["addHandler", "loginSuccess", function(data){
           
         var dobj = tp.pianoId.getUser();
-        console.log(dobj.uid);
+        dataLayer.push({
+            'event' : 'userData',
+            'user_id' : dobj.uid,
+
+        })
+     
 
 
 
